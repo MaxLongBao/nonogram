@@ -4,7 +4,7 @@ import './styled.css';
 
 const Grid = (props) => {
 
-  const { matrix } = props;
+  const { matrix, filled } = props;
 
   console.log(matrix);
 
@@ -12,7 +12,7 @@ const Grid = (props) => {
     let content = row.map((value) => {
       return (
         // unique key to fix
-        <Cell value={value} />
+        <Cell value={value} filled={filled} />
       );
     })
     return (
