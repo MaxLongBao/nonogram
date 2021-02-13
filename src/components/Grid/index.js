@@ -1,5 +1,6 @@
 import React from 'react';
 import Cell from '../Cell';
+import './styled.css';
 
 const Grid = (props) => {
 
@@ -7,20 +8,21 @@ const Grid = (props) => {
 
   console.log(matrix);
 
-  const cells = matrix.map((row) => {
+  const grid = matrix.map((row) => {
     let content = row.map((value) => {
       return (
-        <div>{value}</div>
+        // unique key to fix
+        <Cell value={value} />
       );
     })
     return (
-      <Cell content={content} />
+      <div className='row'>{content}</div>
     )
   })
 
   return (
-    <div>
-      {cells}
+    <div className='grid'>
+      {grid}
     </div>
   );
 };

@@ -1,12 +1,14 @@
 import React from 'react';
+import './styled.css';
 
 const Cell = (props) => {
 
-  const { content } = props;
+  const { value } = props;
 
+  console.log(value, 'value')
   return (
-    <div>
-      {content}
+    <div className='cell'>
+      {value}
     </div>
   );
 };
