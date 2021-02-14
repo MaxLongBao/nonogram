@@ -29,11 +29,11 @@ function App() {
         for (let j = 0; j < length; j++) {
           if (array[i][j] === 'o') {
             number++
-            if (j === (9)) {
+            if (j === (4)) {
               rowsArrayGroup.push(number)
               number = 0
             }
-          } else if (array[i][j] === 'x' || j === (9)) {
+          } else if (array[i][j] === 'x' || j === (4)) {
             if (number > 0) {
               rowsArrayGroup.push(number);
               number = 0
@@ -42,7 +42,6 @@ function App() {
         }
         rowsArray.push(rowsArrayGroup);
       }
-      console.log(rowsArray, 'rowsArray')
       return rowsArray;
     }
     return
@@ -57,11 +56,11 @@ function App() {
         for (let j = 0; j < length; j++) {
           if (array[j][i] === 'o') {
             number++
-            if (j === (9)) {
+            if (j === (4)) {
               columnsArrayGroup.push(number)
               number = 0
             }
-          } else if (array[j][i] === 'x' || j === (9)) {
+          } else if (array[j][i] === 'x' || j === (4)) {
             if (number > 0) {
               columnsArrayGroup.push(number);
               number = 0
@@ -70,7 +69,6 @@ function App() {
         }
         columnsArray.push(columnsArrayGroup);
       }
-      console.log(columnsArray, 'columnsArray')
       return columnsArray;
     }
     return
@@ -83,16 +81,13 @@ function App() {
   const [columns, setColumns] = useState(null);
 
   useEffect(() => {
-    setMatrix(generateMatrix(10))
+    setMatrix(generateMatrix(5))
   }, [])
   
   useEffect(() => {
-      setRows(findRows(matrix, 10))
-      setColumns(findColumns(matrix, 10))
+      setRows(findRows(matrix, 5))
+      setColumns(findColumns(matrix, 5))
   }, [matrix])
-
-  console.log(rows, 'rows')
-  console.log(columns, 'columns')
 
   const handleSwitch = () => {
     if (filled === true) {

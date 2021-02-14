@@ -4,12 +4,19 @@
 }
 
 .rowData {
+  display: flex;
+  justify-content: flex-end;
   height: 30px;
-  width: 30px;
+}
+
+.single-value-row {
+  margin-right: 10px;
 }
 
 .columnData {
-  height: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   width: 30px;
 }
 

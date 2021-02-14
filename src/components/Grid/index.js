@@ -11,8 +11,6 @@ const Grid = (props) => {
     filled,
     handleMistakes
   } = props;
-
-  console.log(matrix, 'matrix grid')
   
   const grid = matrix.map((row) => {
     let content = row.map((value) => {
@@ -27,32 +25,32 @@ const Grid = (props) => {
   })
 
   const rowsData = rows.map((value) => {
+    let singleValue = value.map((v) => {
+      return (
+        <div className='single-value-row'>{v}</div>
+      );
+    })
     return (
-      <div className='rowData'>{value}</div>
+      <div className='rowData'>{singleValue}</div>
     )
   })
 
   const columnsData = columns.map((value) => {
+    let singleValue = value.map((v) => {
+      return (
+        <div>{v}</div>
+        );
+      })
     return (
-      <div className='columnData'>{value}</div>
+      <div className='columnData'>{singleValue}</div>
     )
   })
-
-  // let styleRows;
-  
-  // if (rows) {
-  //   styleRows = {
-  //     height: `${rows * 30}px`
-  //   }
-  // }
-
-  // console.log(styleRows)
 
   return (
     <div>
       <div className='columns'>{columnsData}</div>
       <div className='grid'>
-        <div className='rows' >{rowsData}</div>
+        <div className='rows'>{rowsData}</div>
         <div>{grid}</div>
       </div>
     </div>
