@@ -1,10 +1,26 @@
-.grid {
-  /* display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr; */
+.row {
+  display: flex;
+  justify-content: center;
 }
 
-.row {
+.rowData {
+  height: 30px;
+  width: 30px;
+}
+
+.columnData {
+  height: 30px;
+  width: 30px;
+}
+
+.grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.columns {
+  padding-left: 30px;
   display: flex;
   justify-content: center;
 }

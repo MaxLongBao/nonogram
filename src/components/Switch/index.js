@@ -3,12 +3,14 @@ import './styled.css';
 
 const Switch = (props) => {
 
-  const { handleSwitch } = props;
+  const { handleSwitch, filled } = props;
 
   return (
     <div className='switch'>
-      <div onClick={handleSwitch} >x</div>
-      <div onClick={handleSwitch} >o</div>
+      { filled
+      ? <div onClick={handleSwitch} >o</div>
+      : <div onClick={handleSwitch} >x</div>
+      }
     </div>
   );
 };

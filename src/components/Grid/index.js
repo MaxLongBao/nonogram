@@ -4,15 +4,21 @@ import './styled.css';
 
 const Grid = (props) => {
 
-  const { matrix, filled } = props;
+  const {
+    matrix,
+    rows,
+    columns,
+    filled,
+    handleMistakes
+  } = props;
 
-  console.log(matrix);
-
+  console.log(matrix, 'matrix grid')
+  
   const grid = matrix.map((row) => {
     let content = row.map((value) => {
       return (
         // unique key to fix
-        <Cell value={value} filled={filled} />
+        <Cell value={value} filled={filled} handleMistakes={handleMistakes} />
       );
     })
     return (
@@ -20,9 +26,35 @@ const Grid = (props) => {
     )
   })
 
+  const rowsData = rows.map((value) => {
+    return (
+      <div className='rowData'>{value}</div>
+    )
+  })
+
+  const columnsData = columns.map((value) => {
+    return (
+      <div className='columnData'>{value}</div>
+    )
+  })
+
+  // let styleRows;
+  
+  // if (rows) {
+  //   styleRows = {
+  //     height: `${rows * 30}px`
+  //   }
+  // }
+
+  // console.log(styleRows)
+
   return (
-    <div className='grid'>
-      {grid}
+    <div>
+      <div className='columns'>{columnsData}</div>
+      <div className='grid'>
+        <div className='rows' >{rowsData}</div>
+        <div>{grid}</div>
+      </div>
     </div>
   );
 };

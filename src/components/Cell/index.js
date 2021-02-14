@@ -1,23 +1,20 @@
-import React, { useState, useEffect } from 'react';
-import cross from '../../assets/cancel.svg';
+import React, { useState } from 'react';
 import './styled.css';
 
 const Cell = (props) => {
 
-  const { value, filled } = props;
-
-  console.log(value, 'value')
+  const { value, filled, handleMistakes } = props;
 
   const [cellStyle, setCellStyle] = useState(null);
 
-  const handleClick = (e) => {
+  const handleClick = () => {
     if (filled === true) {
       if (value === 'o') {
         setCellStyle({
           backgroundColor: 'blue',
          })
       } else {
-        console.log('bad')
+        handleMistakes();
       }
     } else {
       if (value === 'x') {
@@ -25,14 +22,14 @@ const Cell = (props) => {
           backgroundColor: 'red'
         })
       } else {
-        console.log('bad x')
+        handleMistakes();
       }
     }
   }
 
   return (
     <div className='cell' onClick={handleClick} style={cellStyle} >
-      {value}
+      {/* {value} */}
     </div>
   );
 };
