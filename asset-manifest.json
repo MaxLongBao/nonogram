@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/nonogram/static/css/main.94cdec3c.chunk.css",
-    "main.js": "/nonogram/static/js/main.e0a2ae4e.chunk.js",
-    "main.js.map": "/nonogram/static/js/main.e0a2ae4e.chunk.js.map",
+    "main.css": "/nonogram/static/css/main.8874fd88.chunk.css",
+    "main.js": "/nonogram/static/js/main.d9dcc680.chunk.js",
+    "main.js.map": "/nonogram/static/js/main.d9dcc680.chunk.js.map",
     "runtime-main.js": "/nonogram/static/js/runtime-main.f56a7537.js",
     "runtime-main.js.map": "/nonogram/static/js/runtime-main.f56a7537.js.map",
     "static/js/2.545f06e7.chunk.js": "/nonogram/static/js/2.545f06e7.chunk.js",
@@ -10,13 +10,13 @@
     "static/js/3.198d190f.chunk.js": "/nonogram/static/js/3.198d190f.chunk.js",
     "static/js/3.198d190f.chunk.js.map": "/nonogram/static/js/3.198d190f.chunk.js.map",
     "index.html": "/nonogram/index.html",
-    "static/css/main.94cdec3c.chunk.css.map": "/nonogram/static/css/main.94cdec3c.chunk.css.map",
+    "static/css/main.8874fd88.chunk.css.map": "/nonogram/static/css/main.8874fd88.chunk.css.map",
     "static/js/2.545f06e7.chunk.js.LICENSE.txt": "/nonogram/static/js/2.545f06e7.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.f56a7537.js",
     "static/js/2.545f06e7.chunk.js",
-    "static/css/main.94cdec3c.chunk.css",
-    "static/js/main.e0a2ae4e.chunk.js"
+    "static/css/main.8874fd88.chunk.css",
+    "static/js/main.d9dcc680.chunk.js"
   ]
 }
