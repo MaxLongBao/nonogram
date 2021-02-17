@@ -29,11 +29,11 @@ function App() {
         for (let j = 0; j < length; j++) {
           if (array[i][j] === 'o') {
             number++
-            if (j === (4)) {
+            if (j === (9)) {
               rowsArrayGroup.push(number)
               number = 0
             }
-          } else if (array[i][j] === 'x' || j === (4)) {
+          } else if (array[i][j] === 'x' || j === (9)) {
             if (number > 0) {
               rowsArrayGroup.push(number);
               number = 0
@@ -56,11 +56,11 @@ function App() {
         for (let j = 0; j < length; j++) {
           if (array[j][i] === 'o') {
             number++
-            if (j === (4)) {
+            if (j === (9)) {
               columnsArrayGroup.push(number)
               number = 0
             }
-          } else if (array[j][i] === 'x' || j === (4)) {
+          } else if (array[j][i] === 'x' || j === (9)) {
             if (number > 0) {
               columnsArrayGroup.push(number);
               number = 0
@@ -81,12 +81,12 @@ function App() {
   const [columns, setColumns] = useState(null);
 
   useEffect(() => {
-    setMatrix(generateMatrix(5))
+    setMatrix(generateMatrix(10))
   }, [])
   
   useEffect(() => {
-      setRows(findRows(matrix, 5))
-      setColumns(findColumns(matrix, 5))
+      setRows(findRows(matrix, 10))
+      setColumns(findColumns(matrix, 10))
   }, [matrix])
 
   const handleSwitch = () => {

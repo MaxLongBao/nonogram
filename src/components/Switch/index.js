@@ -25,7 +25,7 @@ const Switch = (props) => {
   }
 
   return (
-    <div className='switch' onClick={handleSwitch} style={toggleStyle}>
+    <div className='switch' style={toggleStyle} onClick={handleSwitch}>
       <div className='toggle'>
         <div className='square' style={squareStyle}>
         </div>
