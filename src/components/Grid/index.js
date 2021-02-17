@@ -31,7 +31,7 @@ const Grid = (props) => {
       );
     })
     return (
-      <div className='rowData'>{singleValue}</div>
+      <div className='row-data'>{singleValue}</div>
     )
   })
 
@@ -42,7 +42,7 @@ const Grid = (props) => {
         );
       })
     return (
-      <div className='columnData'>{singleValue}</div>
+      <div className='column-data'>{singleValue}</div>
     )
   })
 

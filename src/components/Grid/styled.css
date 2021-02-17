@@ -3,7 +3,7 @@
   justify-content: center;
 }
 
-.rowData {
+.row-data {
   display: flex;
   justify-content: flex-end;
   height: 30px;
@@ -13,7 +13,7 @@
   margin-right: 10px;
 }
 
-.columnData {
+.column-data {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
