@@ -24,6 +24,7 @@ const Cell = (props) => {
           })
           setLocked(true)
         } else {
+          handleMouseUp();
           handleMistakes();
         }
       } else {
@@ -33,6 +34,7 @@ const Cell = (props) => {
           })
           setLocked(true)
         } else {
+          handleMouseUp();
           handleMistakes();
         }
       }
