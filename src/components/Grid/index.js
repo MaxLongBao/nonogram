@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Cell from '../Cell';
 import './styled.css';
 
@@ -11,19 +11,36 @@ const Grid = (props) => {
     filled,
     handleMistakes
   } = props;
+
+  const [clicked, setClicked] = useState(false);
+
+  const handleMouseDown = () => {
+    setClicked(true);
+  }
+
+  const handleMouseUp = () => {
+    setClicked(false);
+  }
   
   const grid = matrix.map((row) => {
     let content = row.map((value) => {
       return (
         // unique key to fix
-        <Cell value={value} filled={filled} handleMistakes={handleMistakes} />
+        <Cell 
+          value={value}
+          filled={filled}
+          handleMistakes={handleMistakes}
+          handleMouseDown={handleMouseDown}
+          handleMouseUp={handleMouseUp}
+          clicked={clicked}
+        />
       );
     })
     return (
       <div className='row'>{content}</div>
     )
   })
-
+console.log(clicked)
   const rowsData = rows.map((value) => {
     let singleValue = value.map((v) => {
       return (
