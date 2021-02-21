@@ -1,0 +1,11 @@
+.difficulty-select {
+  width: 250px;
+  display: flex;
+  margin: 0 auto;
+}
+
+.difficulty {
+  width: 100px;
+  border: 1px solid black;
+  margin: 0 auto;
+}

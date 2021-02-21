@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Cell from '../Cell';
 import './styled.css';
 
@@ -9,11 +9,35 @@ const Grid = (props) => {
     rows,
     columns,
     filled,
-    handleMistakes
+    handleMistakes,
+    callEndGame
   } = props;
 
   const [clicked, setClicked] = useState(false);
+  const [lockedCell, setLockedCell] = useState(0);
+  const [blueSquares, setBlueSquares] = useState(null);
+  
+  const blueSquaresCount = () => {
+    let counter = 0;
+    rows.forEach((array) => {
+      array.forEach((item) => {
+        counter += item;
+      })
+    })
+    setBlueSquares(counter)
+  }
 
+  useEffect(() => {
+    blueSquaresCount()
+  }, [rows]);
+
+  useEffect(() => {
+    console.log(lockedCell)
+    if (lockedCell === blueSquares) {
+      callEndGame('win');
+    }
+  }, [lockedCell])
+  
   const handleMouseDown = () => {
     setClicked(true);
   }
@@ -21,7 +45,13 @@ const Grid = (props) => {
   const handleMouseUp = () => {
     setClicked(false);
   }
-  
+
+
+
+  const lockCell = () => {
+    setLockedCell(lockedCell + 1);
+  }
+
   const grid = matrix.map((row) => {
     let content = row.map((value) => {
       return (
@@ -29,6 +59,7 @@ const Grid = (props) => {
         <Cell 
           value={value}
           filled={filled}
+          lockCell={lockCell}
           handleMistakes={handleMistakes}
           handleMouseDown={handleMouseDown}
           handleMouseUp={handleMouseUp}
@@ -40,7 +71,7 @@ const Grid = (props) => {
       <div className='row'>{content}</div>
     )
   })
-console.log(clicked)
+
   const rowsData = rows.map((value) => {
     let singleValue = value.map((v) => {
       return (

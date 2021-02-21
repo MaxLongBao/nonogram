@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import FirstScreen from './components/FirstScreen';
 import Grid from './components/Grid';
 import Switch from './components/Switch';
 import './App.css';
+import EndGame from './components/EndGame';
 
 function App() {
 
@@ -28,8 +30,8 @@ function App() {
         let number = 0;
         for (let j = 0; j < length; j++) {
           if (array[i][j] === 'o') {
-            number++
-            if (j === (9)) {
+            number++;
+            if (j === (length - 1)) {
               rowsArrayGroup.push(number)
               number = 0
             }
@@ -56,7 +58,7 @@ function App() {
         for (let j = 0; j < length; j++) {
           if (array[j][i] === 'o') {
             number++
-            if (j === (9)) {
+            if (j === (length - 1)) {
               columnsArrayGroup.push(number)
               number = 0
             }
@@ -76,18 +78,27 @@ function App() {
 
   const [matrix, setMatrix] = useState(null);
   const [filled, setFilled] = useState(true);
-  const [mistakes, setMistakes] = useState(0);
+  const [mistakes, setMistakes] = useState(3);
   const [rows, setRows] = useState(null);
   const [columns, setColumns] = useState(null);
+  const [difficulty, setDifficulty] = useState(null);
+  const [start, setStart] = useState(false);
 
   useEffect(() => {
-    setMatrix(generateMatrix(10))
-  }, [])
+    setMatrix(generateMatrix(difficulty))
+  }, [difficulty])
   
   useEffect(() => {
-      setRows(findRows(matrix, 10))
-      setColumns(findColumns(matrix, 10))
+      setRows(findRows(matrix, difficulty))
+      setColumns(findColumns(matrix, difficulty))
   }, [matrix])
+
+  useEffect(() => {
+    console.log(mistakes)
+    if (mistakes < 1) {
+      callEndGame('lose');
+    }
+}, [mistakes])
 
   const handleSwitch = () => {
     if (filled === true) {
@@ -97,17 +108,45 @@ function App() {
     }
   }
 
+  const callEndGame = (outcome) => {
+    if (outcome === 'win') {
+      console.log('win')
+    } else {
+      console.log('lose')
+    }
+  }
+
   const handleMistakes = () => {
-    setMistakes(mistakes + 1);
+    setMistakes(mistakes - 1);
+  }
+
+  const handleDifficulty = (e) => {
+    switch (e.target.innerText) {
+      case 'Easy':
+        setDifficulty(5);
+        setStart(true)
+        break;
+
+      case 'Medium':
+        setDifficulty(10)
+        setStart(true)
+        break;
+
+      default:
+        break;
+    }
   }
 
   return (
     <div className="App">
-      { matrix && rows && columns
-      ? <Grid matrix={matrix} rows={rows} columns={columns} filled={filled} handleMistakes={handleMistakes} />
-      : null }
-      <Switch handleSwitch={handleSwitch} filled={filled} />
-      <div>Mistakes = {mistakes}</div>
+      { matrix && rows && columns && start
+        ? <div>
+            <Grid matrix={matrix} rows={rows} columns={columns} filled={filled} handleMistakes={handleMistakes} callEndGame={callEndGame} />
+            <Switch handleSwitch={handleSwitch} filled={filled} />
+            <div>Mistakes = {mistakes}</div>
+          </div>
+      : <FirstScreen handleDifficulty={handleDifficulty} />
+       }
     </div>
   );
 }

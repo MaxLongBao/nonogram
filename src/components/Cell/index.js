@@ -6,6 +6,7 @@ const Cell = (props) => {
   const {
     value,
     filled,
+    lockCell,
     handleMistakes,
     handleMouseDown,
     handleMouseUp,
@@ -23,6 +24,7 @@ const Cell = (props) => {
             backgroundColor: 'blue',
           })
           setLocked(true)
+          lockCell()
         } else {
           handleMouseUp();
           handleMistakes();
@@ -60,7 +62,7 @@ const Cell = (props) => {
       onMouseEnter={handleEnter}
       style={cellStyle} 
     >
-      {/* {value} */}
+      {value}
     </div>
   );
 };
