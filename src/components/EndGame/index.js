@@ -1,5 +1,4 @@
 import React from 'react';
-import Restart from '../Restart';
 
 const EndGame = (props) => {
 

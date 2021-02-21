@@ -32,7 +32,6 @@ const Grid = (props) => {
   }, [rows]);
 
   useEffect(() => {
-    console.log(lockedCell)
     if (lockedCell === blueSquares) {
       callEndGame('win');
     }
