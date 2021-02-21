@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/nonogram/static/css/main.177d2f91.chunk.css",
-    "main.js": "/nonogram/static/js/main.7f1153c9.chunk.js",
-    "main.js.map": "/nonogram/static/js/main.7f1153c9.chunk.js.map",
+    "main.js": "/nonogram/static/js/main.9b5c9552.chunk.js",
+    "main.js.map": "/nonogram/static/js/main.9b5c9552.chunk.js.map",
     "runtime-main.js": "/nonogram/static/js/runtime-main.a348c5fa.js",
     "runtime-main.js.map": "/nonogram/static/js/runtime-main.a348c5fa.js.map",
     "static/js/2.545f06e7.chunk.js": "/nonogram/static/js/2.545f06e7.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.a348c5fa.js",
     "static/js/2.545f06e7.chunk.js",
     "static/css/main.177d2f91.chunk.css",
-    "static/js/main.7f1153c9.chunk.js"
+    "static/js/main.9b5c9552.chunk.js"
   ]
 }
