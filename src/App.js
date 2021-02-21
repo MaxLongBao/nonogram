@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import FirstScreen from './components/FirstScreen';
 import Grid from './components/Grid';
 import Switch from './components/Switch';
+import Restart from './components/Restart';
 import './App.css';
 import EndGame from './components/EndGame';
 
@@ -83,6 +84,8 @@ function App() {
   const [columns, setColumns] = useState(null);
   const [difficulty, setDifficulty] = useState(null);
   const [start, setStart] = useState(false);
+  const [outcome, setOutcome] = useState(null);
+  const [end, setEnd] = useState(false);
 
   useEffect(() => {
     setMatrix(generateMatrix(difficulty))
@@ -91,10 +94,11 @@ function App() {
   useEffect(() => {
       setRows(findRows(matrix, difficulty))
       setColumns(findColumns(matrix, difficulty))
+      setMistakes(3)
+      setOutcome(null)
   }, [matrix])
 
   useEffect(() => {
-    console.log(mistakes)
     if (mistakes < 1) {
       callEndGame('lose');
     }
@@ -109,10 +113,11 @@ function App() {
   }
 
   const callEndGame = (outcome) => {
+    setEnd(true)
     if (outcome === 'win') {
-      console.log('win')
+      setOutcome('won!');
     } else {
-      console.log('lose')
+      setOutcome('lost!');
     }
   }
 
@@ -139,14 +144,24 @@ function App() {
 
   return (
     <div className="App">
-      { matrix && rows && columns && start
+      { end
+      ? <EndGame outcome={outcome} />
+      : ( matrix && rows && columns && start
         ? <div>
-            <Grid matrix={matrix} rows={rows} columns={columns} filled={filled} handleMistakes={handleMistakes} callEndGame={callEndGame} />
+            <Grid
+              matrix={matrix}
+              rows={rows}
+              columns={columns}
+              filled={filled} 
+              handleMistakes={handleMistakes}
+              callEndGame={callEndGame} 
+            />
             <Switch handleSwitch={handleSwitch} filled={filled} />
             <div>Mistakes = {mistakes}</div>
+            <Restart />
           </div>
-      : <FirstScreen handleDifficulty={handleDifficulty} />
-       }
+        : <FirstScreen handleDifficulty={handleDifficulty} /> )
+      }
     </div>
   );
 }

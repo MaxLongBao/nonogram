@@ -62,7 +62,7 @@ const Cell = (props) => {
       onMouseEnter={handleEnter}
       style={cellStyle} 
     >
-      {/* {value} */}
+      {value}
     </div>
   );
 };
