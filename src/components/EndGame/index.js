@@ -7,8 +7,7 @@ const EndGame = (props) => {
 
   return (
     <div>
-      <h1>You {outcome}</h1>
-      <Restart />
+      <h2>You {outcome}</h2>
     </div>
   );
 };

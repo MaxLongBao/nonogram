@@ -9,7 +9,7 @@ const FirstScreen = (props) => {
   return (
     <div className='difficulty-container' onClick={(e) => handleDifficulty(e)}>
       <div>
-        <h1>Choose the difficulty:</h1>
+        <h2>Choose the difficulty:</h2>
       </div>
       <div className='difficulty-select'>
         <div className='difficulty'>Easy</div>

@@ -1,9 +1,12 @@
 import React from 'react';
 
-const Restart = () => {
+const Restart = (props) => {
+
+  const { handleRestart } = props;
+
   return (
     <div>
-      {/* <button>Restart</button> */}
+      <button onClick={handleRestart}>Restart</button>
     </div>
   );
 };

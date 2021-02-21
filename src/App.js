@@ -3,8 +3,8 @@ import FirstScreen from './components/FirstScreen';
 import Grid from './components/Grid';
 import Switch from './components/Switch';
 import Restart from './components/Restart';
-import './App.css';
 import EndGame from './components/EndGame';
+import './App.css';
 
 function App() {
 
@@ -86,6 +86,7 @@ function App() {
   const [start, setStart] = useState(false);
   const [outcome, setOutcome] = useState(null);
   const [end, setEnd] = useState(false);
+  const [restart, setRestart] = useState(0);
 
   useEffect(() => {
     setMatrix(generateMatrix(difficulty))
@@ -103,6 +104,16 @@ function App() {
       callEndGame('lose');
     }
 }, [mistakes])
+
+useEffect(() => {
+  setMatrix(null);
+  setRows(null);
+  setColumns(null);
+  setStart(false);
+  setDifficulty(null);
+  setEnd(false);
+  setOutcome(null);
+}, [restart])
 
   const handleSwitch = () => {
     if (filled === true) {
@@ -142,10 +153,18 @@ function App() {
     }
   }
 
+  const handleRestart = () => {
+    setRestart(restart + 1)
+  }
+
   return (
     <div className="App">
+      <h1>NONOGRAM</h1>
       { end
-      ? <EndGame outcome={outcome} />
+      ? (<div>
+          <EndGame outcome={outcome} />
+          <Restart handleRestart={handleRestart} />
+        </div>)
       : ( matrix && rows && columns && start
         ? <div>
             <Grid
@@ -158,7 +177,7 @@ function App() {
             />
             <Switch handleSwitch={handleSwitch} filled={filled} />
             <div>Mistakes = {mistakes}</div>
-            <Restart />
+            <Restart handleRestart={handleRestart} />
           </div>
         : <FirstScreen handleDifficulty={handleDifficulty} /> )
       }
