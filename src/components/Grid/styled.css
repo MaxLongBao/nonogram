@@ -1,3 +1,11 @@
+.game-area {
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+  align-items: flex-end;
+  margin: 0 auto;
+}
+
 .row {
   display: flex;
   justify-content: center;
@@ -27,7 +35,6 @@
 }
 
 .columns {
-  padding-left: 70px;
   display: flex;
   justify-content: center;
 }

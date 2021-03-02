@@ -172,6 +172,7 @@ useEffect(() => {
               rows={rows}
               columns={columns}
               filled={filled} 
+              difficulty={difficulty}
               handleMistakes={handleMistakes}
               callEndGame={callEndGame} 
             />

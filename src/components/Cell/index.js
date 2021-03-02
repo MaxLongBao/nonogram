@@ -32,7 +32,7 @@ const Cell = (props) => {
       } else {
         if (value === 'x') {
           setCellStyle({
-            backgroundColor: 'red'
+            backgroundColor: 'red',
           })
           setLocked(true)
         } else {
@@ -62,7 +62,7 @@ const Cell = (props) => {
       onMouseEnter={handleEnter}
       style={cellStyle} 
     >
-      {/* {value} */}
+      {value}
     </div>
   );
 };

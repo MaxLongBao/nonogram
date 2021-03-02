@@ -9,6 +9,7 @@ const Grid = (props) => {
     rows,
     columns,
     filled,
+    difficulty,
     handleMistakes,
     callEndGame
   } = props;
@@ -16,6 +17,7 @@ const Grid = (props) => {
   const [clicked, setClicked] = useState(false);
   const [lockedCell, setLockedCell] = useState(0);
   const [blueSquares, setBlueSquares] = useState(null);
+  const [widthGameArea, setWidthGameArea] = useState(null);
   
   const blueSquaresCount = () => {
     let counter = 0;
@@ -36,6 +38,19 @@ const Grid = (props) => {
       callEndGame('win');
     }
   }, [lockedCell])
+
+  useEffect(() => {
+    switch (difficulty) {
+      case 5:
+        setWidthGameArea({width: '150px'})
+        break;
+      case 10:
+        setWidthGameArea({width: '300px'})
+        break;
+      default:
+        break;
+    }
+  }, [difficulty])
   
   const handleMouseDown = () => {
     setClicked(true);
@@ -44,8 +59,6 @@ const Grid = (props) => {
   const handleMouseUp = () => {
     setClicked(false);
   }
-
-
 
   const lockCell = () => {
     setLockedCell(lockedCell + 1);
@@ -94,7 +107,7 @@ const Grid = (props) => {
   })
 
   return (
-    <div>
+    <div className='game-area' style={widthGameArea}>
       <div className='columns'>{columnsData}</div>
       <div className='grid'>
         <div className='rows'>{rowsData}</div>
